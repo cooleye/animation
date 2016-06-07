@@ -4,10 +4,10 @@
 原理：使用定时器不断修改div元素，background-image 的 background-position
 
 使用方法：
-  1、在页面引入 <script type="text/javascript" src="js/FramesAnimation.js" ></script>
+  	1、在页面引入 <script type="text/javascript" src="js/FramesAnimation.js" ></script>
   
-  2、创建一个 Animation对象
-  var ani = new Animation({
+  	2、创建一个 Animation对象
+	 var ani = new Animation({
 				'container':'actionContainer',	//动画元素外层元素（***必须）
 				'id':'bomb',					//动画元素id（***必须）
 				'jsonurl':'img/bomb/bomb.json', //动画json文件（***必须）
