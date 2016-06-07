@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		  <!--<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />-->
+		<script type="text/javascript" src="js/jquery-1.12.4.min.js" ></script>
+		<style>
+			body{
+				background: #000;
+				overflow: hidden;
+			}
+			input{
+				width: 80px;
+				height: 30px;
+			}
+			#play{
+				position: absolute;
+				left: 0px;top: 500px;
+			}
+			#play2{
+				position: absolute;
+				left: 100px;top: 500px;
+			}
+			#play3{
+				position: absolute;
+				left: 200px;top: 500px;
+			}
+			#play4{
+				position: absolute;
+				left: 300px;top: 500px;
+			}
+			div{
+				/*border:solid 1px #000;*/
+			}
+		</style>
+	</head>
+	<body>
+		
+		<div id="actionContainer"></div>
+		
+		<input type="button" value="button" id="play"/>
+		<input type="button" value="button" id="play2"/>
+		<input type="button" value="button" id="play3"/>
+		<input type="button" value="button" id="play4"/>
+		<script type="text/javascript" src="js/FramesAnimation.js" ></script>
+		<script>
+		
+			var ani = new Animation({
+				'container':'actionContainer',	//动画元素外层元素（***必须）
+				'id':'bomb',					//动画元素id（***必须）
+				'jsonurl':'img/bomb/bomb.json', //动画json文件（***必须）
+				'texture':'img/bomb/bomb.png',  //动画贴图（***必须）
+				'loop':false, 					//是否循环播放（可选）
+				'isremove':false,				//播放完毕是否从父元素移除（可选）
+				'speed':100 ,					//播放速度（可选）
+				'scale':{x:2,y:2}, 				//缩放（可选）
+				'position':{x:100,y:200}		//位置，使用绝地定位（可选）
+			});
+				
+			var ani2 = new Animation({
+				'container':'actionContainer',
+				'id':'fire',
+				'jsonurl':'img/fire/fire.json',
+				'texture':'img/fire/fire.png',
+				'loop':true,
+				'isremove':false,
+				'speed':50,
+				'scaleX':1,
+				'scaleY':1
+			})
+			
+			var ani3 = new Animation({
+			'container':'actionContainer',//动画元素外层元素（必须）
+			'id':'flash',	//动画元素id（必须）
+			'jsonurl':'img/shandian/shandian.json',//动画json文件（必须）
+			'texture':'img/shandian/shandian.png',//动画贴图（必须）
+			'width':100,
+			'height':100,
+			'scaleX':1,
+			'scaleY':1
+			});
+	
+			
+			var ani4 = new Animation({
+				'container':'actionContainer',	//动画元素外层元素（***必须）
+				'id':'light',					//动画元素id（***必须）
+				'jsonurl':'img/light/light.json', //动画json文件（***必须）
+				'texture':'img/light/light.png',  //动画贴图（***必须）
+				'loop':false, 					//是否循环播放（可选）
+				'isremove':false,				//播放完毕是否从父元素移除（可选）
+				'speed':100 ,					//播放速度（可选）
+				'scale':{x:1,y:1}, 				//缩放（可选）
+				'position':{x:100,y:200}		//位置，使用绝地定位（可选）
+			});
+			
+		$("#play").click(function(){
+			ani.play(false);
+		})
+		
+		$("#play2").click(function(){
+			ani2.play(true);
+		})
+		
+		$("#play3").click(function(){
+			ani3.play(true);
+		})
+		
+		$("#play4").click(function(){
+			ani4.play(false);
+		})
+		</script>
+	</body>
+</html>

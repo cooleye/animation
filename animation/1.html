@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1, user-scalable=no">
+		<meta name="format-detection" content="telephone=no" />
+		<meta name="format-detection" content="email=no" />
+		<style>
+			
+			#test{
+				width: 25%;height: 100px;
+				background: red;
+				-webkit-animation:circle 1s infinite alternate;
+				animation: circle 1s infinite alternate;
+			}
+			
+			@-webkit-keyframes circle{
+				100%{ -webkit-border-radius: 50px;}
+			}
+			@keyframes circle{
+				100%{border-radius: 50px;}
+			}
+		</style>
+	</head>
+	<body>
+		<a href="tel:15011554923">phone</a>
+		
+		<a href="sms:15011554923">MSM</a>
+		
+		<a href="emailto:553443151@qq.com">mail</a>
+		<div id="test"></div>
+	</body>
+</html>

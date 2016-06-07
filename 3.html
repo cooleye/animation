@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			
+			#box{
+				width: 0px;
+				height: 100px;
+				background: yellowgreen;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="box"></div>
+		
+		<script>
+			
+			var box = document.getElementById('box');
+			
+
+			var time = 2000;
+			var startTime = 0;
+			
+			var actionTimer = setInterval(function(){
+				
+				box.style.width = box.offsetWidth + 10 + 'px';
+				
+				startTime += 50;
+				if(startTime >= time){
+					clearInterval(actionTimer)
+				}
+			},40)
+		
+			
+			
+		</script>
+	</body>
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<script type="text/javascript" src="js/jquery-1.12.4.min.js" ></script>
+		<style>
+			#play{
+				position: absolute;
+				left: 200px;top: 400px;
+			}
+		</style>
+	</head>
+	<body>
+		
+		<div id="actionContainer"></div>
+		
+		<input type="button" value="button" id="play"/>
+		
+		<script>
+			
+			(function($){
+				
+			$('#play').click(function(){
+				startAction(false);	
+			})
+			
+			var animationName = '';
+			var frameLength = 0;
+			
+			var AniFrames = [];
+			
+			var loop = false;
+			
+			$.getJSON('img/bomb/bomb.json',function(data){
+				$("#actionContainer").append('<div id="ani"></div>');
+				$("#ani").css('background-image','url(img/bomb/bomb.png)');
+				console.log(data);
+				animationName = data.file;
+				var frames = data.frames;
+				frameLength = Object.getOwnPropertyNames(frames).length;
+				
+				console.log(animationName + ',' + frameLength);
+				for(frame in  frames){
+					var k = frame;
+					var v = frames[k];
+					AniFrames.push(v);
+					console.log(k + ':' + v.x + ',' + v.y + ',' + v.w + ',' + v.h);
+					
+				};
+				
+						
+			})
+			
+			
+			function startAction(loop){
+			function startAction(loop){
+				
+				
+				$("#ani").show();
+				if(AniFrames.length > 0){
+					AniFrames.reverse();
+					var l = AniFrames.length;
+					var i = 0;
+					var actionTimer = setInterval(function(){
+						
+						$("#ani").css({
+							'background-position': (AniFrames[i].x)*-1 + 'px '+(AniFrames[i].y)*-1+'px',
+							'width': (AniFrames[i].w)+'px',
+							'height':(AniFrames[i].h)+'px',
+						});
+	
+						if(i < l-1){
+							i++;
+						}else{
+							if(loop){
+								i = 0;
+							}else{
+								clearInterval(actionTimer);
+								console.log(i);
+								$("#ani").hide();
+							}
+						}
+						
+					
+					},100)
+				}
+				
+			}
+			
+			})(jQuery)
+				
+		</script>
+	</body>
+</html>
