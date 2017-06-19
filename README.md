@@ -1,4 +1,4 @@
-#animation
+# animation
 
 这是一个使用js做的一个帧动库。😊
 原理：使用定时器不断修改div元素，background-image 的 background-position
